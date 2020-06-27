@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # signup
   get '/signup', to: 'users#new'
+
   
 
   # login
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   # logout
-  delete '/logout'
+  delete '/logout', to: 'sessions#destroy'
   
   
   resources :users
