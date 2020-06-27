@@ -20,5 +20,6 @@ User
 Mixtape   * join table
     - belongs_to :user
     - belongs_to :song
+    
     - tape_title
     - description
