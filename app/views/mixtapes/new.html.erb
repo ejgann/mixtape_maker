@@ -1,1 +1,14 @@
 <h1>Create a New Mixtape</h1>
+
+<%= form_tag @mixtape do |f| %>
+<%= label_tag :tape_title %>
+<%= text_field_tag :tape_title %>
+<br>
+<br>
+<%= label_tag :description %>
+<%= text_area_tag :description %>
+<br>
+<br>
+<%= submit_tag("Create Mixtape") %>
+
+<% end %>

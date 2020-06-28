@@ -34,4 +34,5 @@ class MixtapesController < ApplicationController
     def mixtape_params
         params.require(:mixtape).permit(:tape_title, :description)
     end
+    
 end
