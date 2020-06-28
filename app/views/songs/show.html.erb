@@ -1,0 +1,7 @@
+<h1>Info for <%= @song.title %></h1>
+
+<% Song.all.each do |song| %>
+<%= song.title :title %>
+<%= song.artist %>
+
+<% end %>
