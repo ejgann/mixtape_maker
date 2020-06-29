@@ -8,7 +8,7 @@ class MixtapesController < ApplicationController
     end
 
     def create
-        @mixtape = current_user.mixtapes.build(mixtape_params)
+        @mixtape = current_user.mixtapes.create(mixtape_params)
         if @mixtape.save
             redirect_to mixtapes_path
         else
@@ -34,5 +34,5 @@ class MixtapesController < ApplicationController
     def mixtape_params
         params.require(:mixtape).permit(:tape_title, :description)
     end
-    
+
 end
