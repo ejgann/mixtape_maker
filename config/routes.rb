@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   
   resources :mixtapes
   resources :users do
-      resources :songs, only: [:new, :create, :index]
+      resources :songs
   end
-  resources :songs do 
-      resources :mixtapes, only: [:new, :create, :index]
+  resources :songs do
+    resources :mixtapes
   end
 
 

@@ -1,6 +1,13 @@
 class MixtapesController < ApplicationController
+    
     def index
-        @mixtapes = Mixtape.all
+        if params[:song_id] && @song = Song.find_by_id(params[:song_id])
+            # if the song_id exists in params AND it can be found in the song database table, then it's nested and can be associated with mixtape
+            @mixtapes = @song.mixtapes
+        else
+            # otherwise, if those conditions above are false, it will find only the mixtapes alone
+            @mixtapes = Mixtape.all
+        end
     end
 
     def new
@@ -8,10 +15,11 @@ class MixtapesController < ApplicationController
     end
 
     def create
-        @mixtape = current_user.mixtapes.create(mixtape_params)
+        @mixtape = current_user.mixtapes.build(mixtape_params)
         if @mixtape.save
             redirect_to mixtapes_path
         else
+            # @mixtape = Mixtape.find(params[:mixtape_id])
             render :new
         end
     end
@@ -32,7 +40,7 @@ class MixtapesController < ApplicationController
     private
 
     def mixtape_params
-        params.require(:mixtape).permit(:tape_title, :description)
+        params.require(:mixtape).permit(:tape_title, :description, :user_id, :song_id)
     end
 
 end

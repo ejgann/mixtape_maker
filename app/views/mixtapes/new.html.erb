@@ -9,11 +9,6 @@
 <%= text_area_tag :description %>
 <br>
 <br>
-<p>Songs:</p>
-<%= label_tag :song %>
-<%= f.collection_select(:song, :mixtape_id, mixtape.all, :id, :tape_title, {}, {multiple => false }) %>
-<br>
-<br>
 <%= submit_tag("Create Mixtape") %>
 
 <% end %>
